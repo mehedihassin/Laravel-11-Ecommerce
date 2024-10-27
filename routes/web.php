@@ -20,6 +20,8 @@ Route::get('/cart',[CartController::class,'index'])->name('cart.index');
 Route::post('/cart/add',[CartController::class,'add_to_cart'])->name('cart.add');
 Route::put('/increase/cart/qty/{rowId}',[CartController::class,'increase_cart_qty'])->name('increase.cart.qty');
 Route::put('/decrease/cart/qty/{rowId}',[CartController::class,'decrease_cart_qty'])->name('decrease.cart.qty');
+Route::delete('/cart/item/delete/{rowId}',[CartController::class,'remove_cart_item'])->name('remove.cart.item');
+Route::delete('/cart/distroy',[CartController::class,'remove_cart'])->name('remove.cart');
 
 Route::middleware(['auth'])->group(function(){
     Route::get('/account-dashboard',[UserController::class,'index'])->name('user.index');
